@@ -169,3 +169,14 @@ html a:hover {
 	letter-spacing: 10px;
 	margin-right: -10px;
 }
+#back {
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	padding-left: 10px;
+}
+#back p {
+	font-family: 'TitilliumTitle20', sans-serif;
+	font-size: 50px;
+	color: #fff;
+}
