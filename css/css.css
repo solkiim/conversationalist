@@ -13,7 +13,7 @@ html, body {
     outline: 0px;
 }
 ::selection {
-	background-color: #EF106D;
+	background-color: #CEE1F8;
 	color: #fff;
 }
 html a {
@@ -67,18 +67,73 @@ html a:hover {
     text-align: center;
     z-index: 5;
 	padding: 0px 20px 0px 20px;
+	font-family: 'Didot';
 }
 #content h1 {
     width: 313px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0px;
-	font-family: 'ArsenaleWhite';
-    font-size: 150px;
-	letter-spacing: 0px;
-    font-weight: 400;
-    color: #EF106D;
 }
+
+
+/* ------------------ LANDING PAGE STYLING ------------------ */
+#signup-form {
+	box-sizing: border-box;
+   	width: 220px;
+	overflow: hidden;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+#signup-form input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #000 inset !important;
+	-webkit-text-fill-color: #fff !important;
+}
+#signup-form input {
+	color: #fff;
+	letter-spacing: 2px;
+	font-size: 18px;
+	line-height: 20px;
+	width: 100%;
+	background: none;
+	outline: none;
+	border: 0;
+	border-radius: 0;
+	margin-bottom: 35px;
+	text-align: center;
+	border-bottom: 2px solid #fff;
+}
+#signup-form input[type="submit"] {
+	border: 2px solid #FFF;
+	padding: 10px 20px 11px;	
+	cursor: pointer;
+	text-align: center;
+	width: auto;
+}
+#signup-form input[type="submit"]:hover {
+	border: 2px solid #CEE1F8;
+	color: #CEE1F8;
+}
+#signup-form ::-webkit-input-placeholder {
+	color: #fff;
+	font-style: italic;
+}
+#signup-form ::-moz-placeholder {
+	color: #fff;
+	font-style: italic;
+}
+#signup-form :-ms-input-placeholder {
+	color: #fff;
+	font-style: italic;
+}
+#signup-form input:-moz-placeholder {
+	color: #fff;
+	font-style: italic;
+}
+
+
+/* ------------------ ROOM STYLING ------------------ */
 #content > div {
 	height: 130px;
 	width: 130px;
