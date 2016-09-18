@@ -1,6 +1,6 @@
+var displayedUsers = [];
+
 $(document).ready(function(){
-
-
 	$('#particles').particleground({
 	  minSpeedX: 0.1,
 	  maxSpeedX: 0.7,
@@ -26,4 +26,35 @@ $(document).ready(function(){
 			opacity: Math.random()
 		  }, 500);
 	});
+	
+	var um = new Object();
+	um["solkim"] = 5;
+	um["valeriemaytomic"] = 12;
+	um["fuckmylife"] = 8;
+	um["nikitaramoji"] = 1;
+	console.log(um);
+	changeTransparency(um);
 });
+
+function changeTransparency(usermap) {
+	var max = -Infinity;
+	var min = Infinity;
+	jQuery.each(usermap, (function(key, value) {
+		if (value > max) max = value;
+		if (value < min) min = value;
+	}));
+	
+	var range = max - min;
+	
+	jQuery.each(usermap, (function(key, value) {
+		if (displayedUsers.indexOf(key) == -1) {	// if not yet displayed
+			$("#content").append(
+				"<div><div class='transparent-bubble' id='" + key + "'></div><div class='user-bubble'><p>" + key.charAt(0).toUpperCase() + "</p></div></div>"
+			);
+		}
+		
+		$("#" + key).animate({
+			opacity: (value - min) / (range + 1)
+		}, 500);
+	}));
+}
