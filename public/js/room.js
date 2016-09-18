@@ -129,7 +129,7 @@ function changeTransparency(usermap) {
 
 		console.log(key);
 		console.log(value);
-		if((value >= upperQuart) && (gradientHash[key] > 0){
+		if((value >= upperQuart) && (gradientHash[key] > 0)){
 			console.log("upperQuart")
 			gradientHash[key] = gradientHash[key]-(0.03*speed);
 		}
