@@ -161,10 +161,10 @@ html a:hover {
 	display: inline-block;
 	position: relative;
 	top: -104px;
+	color: #30084d;
 }
 .user-bubble p {
     line-height: 100px;
-	color: #fff;
 	font-size: 20px;
 	letter-spacing: 10px;
 	margin-right: -10px;
