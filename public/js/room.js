@@ -129,21 +129,22 @@ function changeTransparency(usermap) {
 
 		console.log(key);
 		console.log(value);
-		if((value >= upperQuart) && (gradientHash[key] > 0)){
+		var currGradient = gradientHash[key]
+		if ((value >= upperQuart) && (currGradient > 0)){
 			console.log("upperQuart")
-			gradientHash[key] = gradientHash[key]-(0.03*speed);
+			gradientHash[key] = currGradient-(0.03*speed);
 		}
-		else if ((value >= avg) && (gradientHash[key] > 0)){
+		else if ((value >= avg) && (currGradient > 0)){
 			console.log("avg")
-			gradientHash[key] = gradientHash[key]-(0.01*speed);
+			gradientHash[key] = currGradient[key]-(0.01*speed);
 		}
-		else if(value >= lowerQuart) && (gradientHash[key] < 1)){
+		else if ((value >= lowerQuart) && (currGradient < 1)){
 			console.log("lowerQuart")
-			gradientHash[key] = gradientHash[key]+(0.01*speed);
+			gradientHash[key] = currGradient+(0.01*speed);
 		}
-		else if (gradientHash[key] < 1){
+		else if (currGradient < 1){
 			console.log("bottom")
-			gradientHash[key] = gradientHash[key]+(0.03*speed);
+			gradientHash[key] = currGradient+(0.03*speed);
 		}
 
 		console.log(gradientHash[key])
