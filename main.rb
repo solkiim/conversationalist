@@ -32,11 +32,15 @@ post '/data/userAndVolume' do
 
 
   	maximum_users.each do |user,volume|
-  		talk_counts[user] += 1
+  		if(talk_counts[user] < 15)
+  			talk_counts[user] += 1
+  		end
   	end
 
   	 minimum_users.each do |user,volume|
-  		talk_counts[user] -= 1
+  	 	if(talk_counts[user] > -15)
+  			talk_counts[user] -= 1
+  		end
   	end
 
   	JSON.generate(talk_counts)
