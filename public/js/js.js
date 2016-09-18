@@ -1,4 +1,6 @@
-$(document).ready(function(){	
+$(document).ready(function(){
+
+
 	$('#particles').particleground({
 	  minSpeedX: 0.1,
 	  maxSpeedX: 0.7,
@@ -25,4 +27,3 @@ $(document).ready(function(){
 		  }, 500);
 	});
 });
-
