@@ -39,12 +39,10 @@ function handleSuccess(stream) {
       alert(e);
       return;
     }
-    //console.log(soundMeter.instant.toFixed(2));
     setInterval(function() {
     //instantMeter.value should be the volume value, so you can return that at the end (probably)
       instantMeter.value = soundMeter.instant.toFixed(2);  
       sendData(instantMeter.value); 
-	  //console.log(instantMeter.value);
 	  changeTransparency(dataHash);
       //$("#vol").val(instantMeter.value)
     }, 1000);
@@ -137,21 +135,10 @@ function changeTransparency(usermap) {
 		else if (currGradient < 1){
 			gradientHash[key] = currGradient+(0.03*speed);
 		}
-
-		// if ((value > usermap[length/2]) && (currGradient < 1)){
-		// 	gradientHash[key] = currGradient-(0.01*speed);
-		// }
-		// else if ((value < usermap[length/2]) && (currGradient > 0)){
-		// 	gradientHash[key] = currGradient+(0.01*speed);
-		// }
-
-		console.log(gradientHash[key])
 		
 		if (gradientHash[key] > 0.6) {
-			console.log("changingtopurple");
 			$("#" + key).siblings(".user-bubble").css("color", "#30084d");
 		} else {
-			console.log("changingtowhite");
 			$("#" + key).siblings(".user-bubble").css("color", "#fff");
 		}
 		
