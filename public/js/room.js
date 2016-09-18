@@ -44,7 +44,7 @@ function handleSuccess(stream) {
     //instantMeter.value should be the volume value, so you can return that at the end (probably)
       instantMeter.value = soundMeter.instant.toFixed(2);  
       sendData(instantMeter.value); 
-	  console.log(instantMeter.value);
+	  //console.log(instantMeter.value);
 	  changeTransparency(dataHash);
       //$("#vol").val(instantMeter.value)
     }, 2000);
@@ -87,7 +87,7 @@ $(document).ready(function(){
 	$(".transparent-bubble").each(function() {
 		$(this).animate({
 			opacity: 0
-		  }, 2000);
+		  }, 500);
 	});
 	
 	
@@ -124,8 +124,6 @@ function changeTransparency(usermap) {
 			gradientHash[key] = 0;
 		}
 
-		//var NewRange = 100  
-		//var NewValue = ((((value + 1) - min) * 100) / (range+1))
 
 		console.log(key);
 		//console.log(value);
@@ -143,7 +141,7 @@ function changeTransparency(usermap) {
 			gradientHash[key] = currGradient+(0.03*speed);
 		}
 
-		//console.log(gradientHash[key])
+		console.log(gradientHash[key])
 		
 		$("#" + key).animate({
 			opacity: gradientHash[key]

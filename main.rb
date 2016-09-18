@@ -13,7 +13,6 @@ end
 
 post '/room.html' do
 	@nameR = params[:Name]
-	roomR = params[:Room]
 	redirect to('/room.html')
 end
 
@@ -30,9 +29,16 @@ post '/data/userAndVolume' do
   	max_val = current_volumes.values.max
   	maximum_users = current_volumes.select {|k,v| v == max_val}
 
-  	maximum_users.each do |user,volume|
+  	if maximum_users.size == 1
+  		puts user 
+  		puts current_volumes[user]
   		talk_counts[user] += 1
   	end
+  	# maximum_users.each do |user,volume|
+  	# 	puts user
+  	# 	puts current_volumes[user]
+  	# 	talk_counts[user] += 1
+  	# end
 
   	JSON.generate(talk_counts)
 end
