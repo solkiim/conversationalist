@@ -7,3 +7,6 @@ Conversationalist aims to solve, or at least increase awareness of, this problem
 NOTE: In order for the JS to access microphone data, you will need to go to chrome://flags and enable Experimental Web Platform Features.
 
 Try it out [here](https://hackmit16.herokuapp.com/)!
+
+![alt text](index.png)
+![alt text](room.png)
