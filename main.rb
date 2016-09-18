@@ -32,13 +32,13 @@ post '/data/userAndVolume' do
 
 
   	maximum_users.each do |user,volume|
-  		if(talk_counts[user] < 15)
+  		if(talk_counts[user] < 10)
   			talk_counts[user] += 1
   		end
   	end
 
   	 minimum_users.each do |user,volume|
-  	 	if(talk_counts[user] > -15)
+  	 	if(talk_counts[user] > -10)
   			talk_counts[user] -= 1
   		end
   	end
