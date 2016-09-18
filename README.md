@@ -8,5 +8,5 @@ NOTE: In order for the JS to access microphone data, you will need to go to chro
 
 Try it out [here](https://hackmit16.herokuapp.com/)!
 
-![alt text](index.png)
-![alt text](room.png)
+<img src="https://github.com/solkiim/conversationalist/blob/master/index.png" height="600">
+<img src="https://github.com/solkiim/conversationalist/blob/master/room.png" height="600">
