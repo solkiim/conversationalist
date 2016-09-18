@@ -1,3 +1,29 @@
+/* ------------------ FONTS ------------------ */
+@font-face {
+  font-family: 'Didot';
+  src: url('fonts/Didot.eot');
+  src: url('fonts/Didot.woff2') format('woff2'),
+       url('fonts/Didot.woff') format('woff'),
+       url('fonts/Didot.ttf') format('truetype'),
+       url('fonts/Didot.svg#Didot') format('svg'),
+       url('fonts/Didot.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TitilliumTitle20';
+  src: url('fonts/TitilliumTitle20.eot');
+  src: url('fonts/TitilliumTitle20.woff2') format('woff2'),
+       url('fonts/TitilliumTitle20.woff') format('woff'),
+       url('fonts/TitilliumTitle20.ttf') format('truetype'),
+       url('fonts/TitilliumTitle20.svg#TitilliumTitle20') format('svg'),
+       url('fonts/TitilliumTitle20.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 /* ------------------ GENERAL ------------------ */
 body {
     font-size: 100%;
