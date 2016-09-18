@@ -34,6 +34,8 @@ $(document).ready(function(){
 	um["nikitaramoji"] = 1;
 	console.log(um);
 	changeTransparency(um);
+	
+	sendData([2,1,6,29]);
 });
 
 function changeTransparency(usermap) {
@@ -57,4 +59,15 @@ function changeTransparency(usermap) {
 			opacity: (value - min) / (range + 1)
 		}, 500);
 	}));
+}
+
+function sendData(volumeData) {
+	$.post( "/data/userAndVolume",
+	{
+	user : "solkim",
+	volume : volumeData
+	}, 
+	function(data) {
+		console.log(data);
+	});
 }
