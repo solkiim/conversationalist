@@ -9,7 +9,5 @@ NOTE: In order for the JS to access microphone data, you will need to go to [chr
 Try it out [here](https://hackmit16.herokuapp.com/)!
 
 <img src="https://github.com/solkiim/conversationalist/blob/master/screenshots/index.png" height="600">
-Landing page (mobile example)
 
 <img src="https://github.com/solkiim/conversationalist/blob/master/screenshots/room.png" height="600">
-Room page (desktop example)
