@@ -134,7 +134,7 @@ function changeTransparency(usermap) {
 			gradientHash[key] = currGradient-(0.03*speed);
 		}
 		else if ((value >= avg) && (currGradient > 0)){
-			gradientHash[key] = currGradient[key]-(0.01*speed);
+			gradientHash[key] = currGradient-(0.01*speed);
 		}
 		else if ((value >= lowerQuart) && (currGradient < 1)){
 			gradientHash[key] = currGradient+(0.01*speed);
