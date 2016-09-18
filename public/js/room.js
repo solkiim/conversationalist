@@ -31,8 +31,8 @@ $(document).ready(function(){
 	var um = new Object();
 	um["solkim"] = 5;
 	um["valeriemaytomic"] = 12;
-	um["fuckmylife"] = 8;
-	um["nikitaramoji"] = 1;
+	um["fuckmylife"] = 1;
+	um["nikitaramoji"] = 8;
 	changeTransparency(um);
 	
 	sendData([2,1,6,29]);
@@ -64,7 +64,7 @@ function changeTransparency(usermap) {
 function sendData(volumeData) {
 	$.post( "/data/userAndVolume",
 	{
-	user : "solkim",
+	user : currentUser,
 	volume : volumeData
 	}, 
 	function(data) {
