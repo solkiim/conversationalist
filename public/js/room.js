@@ -14,7 +14,7 @@
 var instantMeter = document.querySelector('#instant meter');
 var dataHash = new Object();
 var gradientHash = new Object();
-const speed = 1.5;
+const speed = 1.0;
 
 try {
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -47,7 +47,7 @@ function handleSuccess(stream) {
 	  console.log(instantMeter.value);
 	  changeTransparency(dataHash);
       //$("#vol").val(instantMeter.value)
-    }, 500);
+    }, 2000);
   });
 }
 
@@ -131,19 +131,15 @@ function changeTransparency(usermap) {
 		console.log(value);
 		var currGradient = gradientHash[key]
 		if ((value >= upperQuart) && (currGradient > 0)){
-			console.log("upperQuart")
 			gradientHash[key] = currGradient-(0.03*speed);
 		}
 		else if ((value >= avg) && (currGradient > 0)){
-			console.log("avg")
 			gradientHash[key] = currGradient[key]-(0.01*speed);
 		}
 		else if ((value >= lowerQuart) && (currGradient < 1)){
-			console.log("lowerQuart")
 			gradientHash[key] = currGradient+(0.01*speed);
 		}
 		else if (currGradient < 1){
-			console.log("bottom")
 			gradientHash[key] = currGradient+(0.03*speed);
 		}
 
