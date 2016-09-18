@@ -1,14 +1,3 @@
-
-/*
- *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
- *
- *  Use of this source code is governed by a BSD-style license
- *  that can be found in the LICENSE file in the root of the source
- *  tree.
- */
-
-/* global AudioContext, SoundMeter */
-
 'use strict';
 
 var instantMeter = document.querySelector('#instant meter');
@@ -44,7 +33,6 @@ function handleSuccess(stream) {
       instantMeter.value = soundMeter.instant.toFixed(2);  
       sendData(instantMeter.value); 
 	  changeTransparency(dataHash);
-      //$("#vol").val(instantMeter.value)
     }, 1000);
   });
 }
@@ -87,13 +75,6 @@ $(document).ready(function(){
 			opacity: 0
 		  }, 500);
 	});
-	
-	
-	// dataHash["solkim"] = 5;
-	// dataHash["valeriemaytomic"] = 12;
-	// dataHash["fuckmylife"] = 1;
-	// dataHash["nikitaramoji"] = 8;
-	
 });
 
 function changeTransparency(usermap) {
@@ -114,7 +95,8 @@ function changeTransparency(usermap) {
 	var upperQuart = avg + lowerQuart;
 	
 	jQuery.each(usermap, (function(key, value) {
-		if (displayedUsers.indexOf(key) == -1) {	// if not yet displayed
+		// add user if not yet displayed
+		if (displayedUsers.indexOf(key) == -1) {
 			$("#content").append(
 				"<div><div class='transparent-bubble' id='" + key + "'></div><div class='user-bubble'><p>" + key.charAt(0).toUpperCase() + "</p></div></div>"
 			);
@@ -122,6 +104,7 @@ function changeTransparency(usermap) {
 			gradientHash[key] = 0;
 		}
 
+		// set gradient
 		var currGradient = gradientHash[key]
 		if ((value >= upperQuart) && (currGradient > 0)){
 			gradientHash[key] = currGradient-(0.03*speed);
@@ -136,12 +119,14 @@ function changeTransparency(usermap) {
 			gradientHash[key] = currGradient+(0.03*speed);
 		}
 		
+		// change text color based on transparency value
 		if (gradientHash[key] > 0.6) {
 			$("#" + key).siblings(".user-bubble").css("color", "#30084d");
 		} else {
 			$("#" + key).siblings(".user-bubble").css("color", "#fff");
 		}
 		
+		// change transparency based on speak value
 		$("#" + key).animate({
 			opacity: gradientHash[key]
 		}, 500);
