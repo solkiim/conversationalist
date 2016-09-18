@@ -14,7 +14,7 @@
 var instantMeter = document.querySelector('#instant meter');
 var dataHash = new Object();
 var gradientHash = new Object();
-const speed = 3;
+const speed = 1.5;
 
 try {
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -44,7 +44,7 @@ function handleSuccess(stream) {
     //instantMeter.value should be the volume value, so you can return that at the end (probably)
       instantMeter.value = soundMeter.instant.toFixed(2);  
       sendData(instantMeter.value); 
-	  //console.log(instantMeter.value);
+	  console.log(instantMeter.value);
 	  changeTransparency(dataHash);
       //$("#vol").val(instantMeter.value)
     }, 500);
@@ -129,19 +129,19 @@ function changeTransparency(usermap) {
 
 		console.log(key);
 		console.log(value);
-		if(value >= upperQuart){
+		if((value >= upperQuart) && (gradientHash[key] > 0){
 			console.log("upperQuart")
 			gradientHash[key] = gradientHash[key]-(0.03*speed);
 		}
-		else if (value >= avg){
+		else if ((value >= avg) && (gradientHash[key] > 0)){
 			console.log("avg")
 			gradientHash[key] = gradientHash[key]-(0.01*speed);
 		}
-		else if(value >= lowerQuart){
+		else if(value >= lowerQuart) && (gradientHash[key] < 1)){
 			console.log("lowerQuart")
 			gradientHash[key] = gradientHash[key]+(0.01*speed);
 		}
-		else{
+		else if (gradientHash[key] < 1){
 			console.log("bottom")
 			gradientHash[key] = gradientHash[key]+(0.03*speed);
 		}
