@@ -28,17 +28,16 @@ post '/data/userAndVolume' do
   	current_volumes[user] = vol
   	max_val = current_volumes.values.max
   	maximum_users = current_volumes.select {|k,v| v == max_val}
+  	minimum_users = current_volumes.reject {|k,v| v == max_val}
 
-  	if maximum_users.size == 1
-  		puts user 
-  		puts current_volumes[user]
+
+  	maximum_users.each do |user,volume|
   		talk_counts[user] += 1
   	end
-  	# maximum_users.each do |user,volume|
-  	# 	puts user
-  	# 	puts current_volumes[user]
-  	# 	talk_counts[user] += 1
-  	# end
+
+  	 minimum_users.each do |user,volume|
+  		talk_counts[user] -= 1
+  	end
 
   	JSON.generate(talk_counts)
 end
