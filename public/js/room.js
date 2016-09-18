@@ -128,7 +128,7 @@ function changeTransparency(usermap) {
 		//var NewValue = ((((value + 1) - min) * 100) / (range+1))
 
 		console.log(key);
-		console.log(value);
+		//console.log(value);
 		var currGradient = gradientHash[key]
 		if ((value >= upperQuart) && (currGradient > 0)){
 			gradientHash[key] = currGradient-(0.03*speed);
@@ -143,7 +143,7 @@ function changeTransparency(usermap) {
 			gradientHash[key] = currGradient+(0.03*speed);
 		}
 
-		console.log(gradientHash[key])
+		//console.log(gradientHash[key])
 		
 		$("#" + key).animate({
 			opacity: gradientHash[key]
