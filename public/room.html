@@ -28,12 +28,31 @@
         </div>
     </section>
 
+    <div id="meters" style="display: none;">
+      <div id="instant" style="display: none;">
+        <div class="label" style="display: none;">Instant: </div>
+        <meter high="0.25" max="1" value="0"></meter>
+        <div class="value" style="display: none;"></div>
+      </div>
+      <div id="slow" style="display: none;">
+        <div class="label" style="display: none;">Slow: </div>
+        <meter high="0.25" max="1" value="0"></meter>
+        <div class="value" style="display: none;"></div>
+      </div>
+      <div id="clip" style="display: none;">
+        <div class="label" style="display: none;">Clip: </div>
+        <meter max="1" value="0"></meter>
+        <div class="value" style="display: none;"></div>
+      </div>
+    </div>
+
+
     <!-- JS -->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/particle.js"></script>
 	<script src="js/room.js"></script>
-	<script src="js/rubyvars.js"></script>
+    <script src="js/soundmeter.js"></script>
 	<!--<script src="js/jsontest.js"></script>-->
 </body>
 </html>
