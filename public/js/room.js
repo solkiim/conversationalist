@@ -13,6 +13,8 @@
 
 var instantMeter = document.querySelector('#instant meter');
 var dataHash = new Object();
+var gradientHash = new Object();
+const speed = 3;
 
 try {
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -42,10 +44,10 @@ function handleSuccess(stream) {
     //instantMeter.value should be the volume value, so you can return that at the end (probably)
       instantMeter.value = soundMeter.instant.toFixed(2);  
       sendData(instantMeter.value); 
-	  console.log(instantMeter.value);
+	  //console.log(instantMeter.value);
 	  changeTransparency(dataHash);
       //$("#vol").val(instantMeter.value)
-    }, 200);
+    }, 500);
   });
 }
 
@@ -99,24 +101,55 @@ $(document).ready(function(){
 function changeTransparency(usermap) {
 	var max = -Infinity;
 	var min = Infinity;
+	var sum = 0;
+	var length = 0;
 	jQuery.each(usermap, (function(key, value) {
 		if (value > max) max = value;
 		if (value < min) min = value;
+		sum += value;
+		length += 1;
 	}));
 	
 	var range = max - min;
+	var avg = sum / length;
+	var lowerQuart = avg / 2;
+	var upperQuart = avg + lowerQuart;
 	
 	jQuery.each(usermap, (function(key, value) {
-		//console.log(key);
 		if (displayedUsers.indexOf(key) == -1) {	// if not yet displayed
 			$("#content").append(
 				"<div><div class='transparent-bubble' id='" + key + "'></div><div class='user-bubble'><p>" + key.charAt(0).toUpperCase() + "</p></div></div>"
 			);
 			displayedUsers.push(key)
+			gradientHash[key] = 0;
 		}
+
+		//var NewRange = 100  
+		//var NewValue = ((((value + 1) - min) * 100) / (range+1))
+
+		console.log(key);
+		console.log(value);
+		if(value >= upperQuart){
+			console.log("upperQuart")
+			gradientHash[key] = gradientHash[key]-(0.03*speed);
+		}
+		else if (value >= avg){
+			console.log("avg")
+			gradientHash[key] = gradientHash[key]-(0.01*speed);
+		}
+		else if(value >= lowerQuart){
+			console.log("lowerQuart")
+			gradientHash[key] = gradientHash[key]+(0.01*speed);
+		}
+		else{
+			console.log("bottom")
+			gradientHash[key] = gradientHash[key]+(0.03*speed);
+		}
+
+		console.log(gradientHash[key])
 		
 		$("#" + key).animate({
-			opacity: (value - min) / (range + 1)
+			opacity: gradientHash[key]
 		}, 500);
 	}));
 }
