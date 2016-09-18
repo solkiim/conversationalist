@@ -124,9 +124,6 @@ function changeTransparency(usermap) {
 			gradientHash[key] = 0;
 		}
 
-
-		console.log(key);
-		console.log(value);
 		var currGradient = gradientHash[key]
 		if ((value >= upperQuart) && (currGradient > 0)){
 			gradientHash[key] = currGradient-(0.03*speed);
@@ -148,7 +145,13 @@ function changeTransparency(usermap) {
 		// 	gradientHash[key] = currGradient+(0.01*speed);
 		// }
 
-		console.log(gradientHash[key])
+//		console.log(gradientHash[key])
+		
+		if (gradientHash[key] > 0.6) {
+			$("#" + key).siblings(".user-bubble").css("color", "#30084d");
+		} else {
+			$("#" + key).siblings(".user-bubble").css("color", "#fff");
+		}
 		
 		$("#" + key).animate({
 			opacity: gradientHash[key]
