@@ -12,6 +12,7 @@
 'use strict';
 
 var instantMeter = document.querySelector('#instant meter');
+var dataHash = new Object();
 
 try {
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -42,6 +43,7 @@ function handleSuccess(stream) {
       instantMeter.value = soundMeter.instant.toFixed(2);  
       sendData(instantMeter.value); 
 	  console.log(instantMeter.value);
+	  changeTransparency(dataHash);
       //$("#vol").val(instantMeter.value)
     }, 200);
   });
@@ -86,14 +88,12 @@ $(document).ready(function(){
 		  }, 500);
 	});
 	
-	var um = new Object();
-	um["solkim"] = 5;
-	um["valeriemaytomic"] = 12;
-	um["fuckmylife"] = 1;
-	um["nikitaramoji"] = 8;
-	changeTransparency(um);
 	
-	//sendData([2,1,6,29]);
+	// dataHash["solkim"] = 5;
+	// dataHash["valeriemaytomic"] = 12;
+	// dataHash["fuckmylife"] = 1;
+	// dataHash["nikitaramoji"] = 8;
+	
 });
 
 function changeTransparency(usermap) {
@@ -107,6 +107,7 @@ function changeTransparency(usermap) {
 	var range = max - min;
 	
 	jQuery.each(usermap, (function(key, value) {
+		console.log(key);
 		if (displayedUsers.indexOf(key) == -1) {	// if not yet displayed
 			$("#content").append(
 				"<div><div class='transparent-bubble' id='" + key + "'></div><div class='user-bubble'><p>" + key.charAt(0).toUpperCase() + "</p></div></div>"
@@ -126,6 +127,6 @@ function sendData(volumeData) {
 	volume : volumeData
 	}, 
 	function(data) {
-		console.log(data);
+		dataHash = JSON.parse(data);
 	});
 }
