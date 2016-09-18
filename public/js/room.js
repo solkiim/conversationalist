@@ -1,4 +1,5 @@
 var displayedUsers = [];
+var currentUser = sessionStorage.getItem("name").replace(/\s+/, "").toLowerCase();
 
 $(document).ready(function(){
 	$('#particles').particleground({
@@ -32,7 +33,6 @@ $(document).ready(function(){
 	um["valeriemaytomic"] = 12;
 	um["fuckmylife"] = 8;
 	um["nikitaramoji"] = 1;
-	console.log(um);
 	changeTransparency(um);
 	
 	sendData([2,1,6,29]);

@@ -18,4 +18,11 @@ $(document).ready(function(){
 	  onInit: function() {},
 	  onDestroy: function() {}
 	});
+	
+	sessionStorage.setItem('label', 'value')
 });
+
+function saveName() {
+	sessionStorage.setItem("name", $("#name").val());
+	window.location = "room.html";
+}
