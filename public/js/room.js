@@ -87,7 +87,7 @@ $(document).ready(function(){
 	$(".transparent-bubble").each(function() {
 		$(this).animate({
 			opacity: 0
-		  }, 500);
+		  }, 2000);
 	});
 	
 	
