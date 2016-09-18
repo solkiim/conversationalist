@@ -26,7 +26,7 @@ post '/data/userAndVolume' do
 	user = params['user']
   	vol = params['volume']
 
-  	current_volumes[user, vol]
+  	current_volumes[user] = vol
   	max_val = current_volumes.values.max
   	maximum_users = current_volumes.select {|k,v| v == max_val}
 
