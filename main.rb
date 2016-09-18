@@ -34,7 +34,7 @@ post '/data/userAndVolume' do
   		talk_counts[user] += 1
   	end
 
-  	json :talk_counts
+  	JSON.generate(talk_counts)
 end
 
 get '/test' do
