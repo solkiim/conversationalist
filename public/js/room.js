@@ -84,7 +84,7 @@ $(document).ready(function(){
 	
 	$(".transparent-bubble").each(function() {
 		$(this).animate({
-			opacity: Math.random()
+			opacity: 0
 		  }, 500);
 	});
 	
@@ -107,11 +107,12 @@ function changeTransparency(usermap) {
 	var range = max - min;
 	
 	jQuery.each(usermap, (function(key, value) {
-		console.log(key);
+		//console.log(key);
 		if (displayedUsers.indexOf(key) == -1) {	// if not yet displayed
 			$("#content").append(
 				"<div><div class='transparent-bubble' id='" + key + "'></div><div class='user-bubble'><p>" + key.charAt(0).toUpperCase() + "</p></div></div>"
 			);
+			displayedUsers.push(key)
 		}
 		
 		$("#" + key).animate({
