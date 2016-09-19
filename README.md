@@ -1,4 +1,5 @@
-# hackmit16
+# conversationalist
+Made at HackMIT '16
 
 We've all been in a situation where some of the participants in a meeting or group project are dominating the discussion, while others are rarely getting the chance to make their opinions heard. Oftentimes, individuals do not realize how much they are talking relative to others in the group - this issue is particularly relevant to underrepresented and minority groups, who may have trouble speaking out in such settings.
 
